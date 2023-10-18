@@ -1,61 +1,25 @@
-// Add Student
-function addStudent() {
-    var name = $('#StuName').val();
-    var age = $('#StuAge').val();
-    var CourseID = $('#StuDept').val();
-
-    var Student = {
-        FirstName: FirstName,
-        age: age,
-        CourseID: CourseID
-    };
-
-    $.ajax({
-        url: 'https://localhost:7186/api/employees',
-        type: 'POST',
-        data: JSON.stringify(Student),
-        contentType: 'application/json',
-        success: function() {
-            // Clear form
-            $('#StudentForm')[0].reset();
-            // Update Student List
-            fetchEmployees();
-        }
-    });
-}
 
 // Add Course
-function addCourse() {
-    var name = $('#CourseName').val();
+function AddCourses() {
+	var ID = parseInt($('#CourseID').val());
+    var Name = $('#CourseName').val();
 
     var Course = {
-        CourseName: CourseName
+		CourseID: ID,
+        CourseName: Name
     };
-
+	
+//AJAX CPURSE
     $.ajax({
-        url: 'https://localhost:7186/api/departments',
+        url: 'https://localhost:44347/api/Course',
         type: 'POST',
         data: JSON.stringify(Course),
         contentType: 'application/json',
         success: function() {
             // Clear form
-            $('#StudentForm')[0].reset();
+            $('#CourseForm')[0].reset();
             // Update Student List
             fetchCourses();
-        }
-    });
-}
-
-// Fetch Student
-function fetchStudents() {
-    $.ajax({
-        url: 'https://localhost:7186/api/employees',
-        type: 'GET',
-        success: function(data) {
-            $('#StudentList').empty();
-            data.forEach(function(Studnet) {
-                $('#StudentList').append('<li class="list-group-item">' + Student.FirstName + ', ' + Student.age + ', ' + Student.CourseID + '</li>');
-            });
         }
     });
 }
@@ -63,12 +27,12 @@ function fetchStudents() {
 // Fetch Courses
 function fetchCourses() {
     $.ajax({
-        url: 'https://localhost:7186/api/departments',
+        url: 'https://localhost:44347/api/Course',
         type: 'GET',
         success: function(data) {
             $('#CourseList').empty();
-            data.forEach(function(department) {
-                $('#departmentList').append('<li class="list-group-item">' + Course.Name + '</li>');
+            data.forEach(function(Course) {
+                $('#CourseList').append('<li class="list-group list-group-flush">' + Course.courseID +' ' + Course.courseName + '</li>');
             });
         }
     });
@@ -76,7 +40,7 @@ function fetchCourses() {
 
 // Initial fetch
 $(document).ready(function() {
-    fetchStudents();
+    fetchCourses();
     //fetchCourses();
 });
 
