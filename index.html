@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Management</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="text-center" id="title">Student Management</h1>
+
+    <!-- Student Form -->
+    <div class="card mt-4">
+        <div class="card-header">Add Student</div>
+        <div class="card-body">
+            <form id="StudentForm">
+                <div class="form-group">
+                    <label>FirstName:</label>
+                    <input type="text" id="StuName" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Age:</label>
+                    <input type="number" id="StuAge" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Course:</label>
+                    <input type="text" id="StuDept" class="form-control">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="addStudent()">Add Student</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Student Form -->
+    <div class="card mt-4">
+        <div class="card-header">Add Course</div>
+        <div class="card-body">
+            <form id="CourseForm">
+                <div class="form-group">
+                    <label>Course Name:</label>
+                    <input type="text" id="CourseName" class="form-control">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="addCourse()">Add Course</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Student List -->
+    <div class="card mt-4">
+        <div class="card-header">Student List</div>
+        <ul id="StudentList" class="list-group list-group-flush"></ul>
+    </div>
+
+    <!-- Course List -->
+    <div class="card mt-4">
+        <div class="card-header">Course List</div>
+        <ul id="CourseList" class="list-group list-group-flush"></ul>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
